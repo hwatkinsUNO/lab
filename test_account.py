@@ -10,13 +10,12 @@ class Test:
 
     def test_init(self):
         assert self.testing.get_name() == 'Sample'
-        assert self.testing.get_balance() == pytest.approx(0, abs=0.001)
+        assert self.testing.get_balance() == 0
 
     def test_deposit(self):
         assert self.testing.deposit(-1.25) == False
         assert self.testing.deposit(0) == False
         assert self.testing.deposit(3.50) == True
-        assert self.testing.get_balance() == pytest.approx(3.50, abs=0.001)
 
     def test_withdraw(self):
         self.testing.deposit(5)
@@ -24,7 +23,8 @@ class Test:
         assert self.testing.withdraw(0) == False
         assert self.testing.withdraw(3.50) == True
         assert self.testing.withdraw(2.50) == False
-        assert self.testing.get_balance() == pytest.approx(1.50, abs=0.001)
+
+
 
 
 
